@@ -2,7 +2,7 @@
 USERS::USERS() : email(email), username(username), password(password){
 
 }
-USERS::USERS(const string email, const string password, const string username) /*: email(email), password(password), username(username)*/ {
+USERS::USERS(const string email, const string password, const string username)  {
 	set_email(email);
 	set_password(password);
 	set_username(username);

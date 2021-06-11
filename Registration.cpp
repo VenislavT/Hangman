@@ -84,17 +84,17 @@ bool Registration::username_is_taken(const int users_count, const string usernam
     }
     return false;
 }
-void Registration::new_password(const int users_count, const string username, const string password, USERS* collection_users) {
-    string input_name;
+void Registration::new_password(const int users_count, const string username, USERS* collection_users) {
+    /*string input_name;*/
     string input_mail;
     string input_password;
-    cout << "Enter username: ";
-    cin >> input_name;
+   /* cout << "Enter username: ";*/
+  /*  cin >> input_name;*/
     for (int i = 0; i < users_count; i++) {
-        if (input_name == collection_users[i].get_username()) {
+        if (username == collection_users[i].get_username()) {
             cout << "Username found." << endl;
             cout << endl;
-            cout << "Enter email: " << endl;
+            cout << "Enter email: ";
             cin >> input_mail;
             if (input_mail == collection_users[i].get_email()) {
                 cout << "Email is correct." << endl;
@@ -108,12 +108,12 @@ void Registration::new_password(const int users_count, const string username, co
             }
             else {
                 cout << "Incorrect email." << endl;
-                return;
+                break;
             }
         }
         else {
             cout << "Incorrect username." << endl;
-            return;
+            break;
         }
     }
 }

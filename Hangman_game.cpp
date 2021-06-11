@@ -1,6 +1,6 @@
 #include "Hangman_game.h"
 
-void Hangman_game::save_game(string file_name, unsigned int misses, string letters, string blank, string word, unsigned int personal_score) {
+void Hangman_game::save_game(const string file_name, unsigned int misses, const string letters, const string blank, const string word, int personal_score) {
 	
 	ofstream file(file_name);
 	if (!file.is_open()) {
@@ -9,7 +9,7 @@ void Hangman_game::save_game(string file_name, unsigned int misses, string lette
 	file << misses << " " << letters << " " << blank << " " << word << " " << personal_score << endl;
 	file.close();
 }
-void Hangman_game::add_word(string name_of_file) {
+void Hangman_game::add_word(const string name_of_file) {
 	string word;
 	cout << "Type the word to be added: ";
 	cin >> word;
@@ -37,10 +37,10 @@ string Hangman_game::take_word(string name_of_file) {
 	word = words[rand() % words.size()];
 	upper_letters(word);
 	return word;
-	/*guess(word, blank_word(word));*/
+	
 }
-int Hangman_game::guess(const string word, string answer_word, unsigned int personal_score, const string username, int& misses) {
-	/*int misses = 0;*/
+int Hangman_game::guess(const string word, string answer_word, int& personal_score, const string username, int& misses) {
+	
 	string guessed_letters;
 	while (misses<=6) {
 		system("cls");
@@ -88,8 +88,7 @@ int Hangman_game::guess(const string word, string answer_word, unsigned int pers
 			}
 			else {
 				misses++;
-				/*system("cls");*/
-				/*draw_hangman(misses);*/
+				
 			}
 		}
 
@@ -104,7 +103,7 @@ int Hangman_game::guess(const string word, string answer_word, unsigned int pers
 			if (!letter_is_found) {
 				misses++;
 				
-				/*draw_hangman(misses);*/
+				
 			}
 		}
 		
@@ -112,12 +111,7 @@ int Hangman_game::guess(const string word, string answer_word, unsigned int pers
 	
 }
 string Hangman_game::blank_word(string word) {
-	/*string blank_word;
-	while (blank_word.size() < word.size()) {
-		blank_word.push_back('_');
-	}
-	cout << blank_word << endl;
-	return word;*/
+
 	for (int i = 0; i < word.size(); i++) {
 		word[i] = '_';
 	}
@@ -192,7 +186,7 @@ void Hangman_game::draw_hangman(unsigned int misses) {
 		cout << "+---------------------------" << endl;
 	}
 	if (misses == 0) {
-		/*cout <<  endl;*/
+	
 		cout <<  endl;
 		cout <<  endl;
 		cout <<  endl;

@@ -8,20 +8,16 @@ using namespace std;
 class Leaderboard 
 {
 public:
-	/*Leaderboard()=default;*/
+	
 	void resize_players(Player*& players, int& count);
 	void add_leaderboard(string file_name, Player& player, int& all_players_count, int& max_players_count, Player*& players);
-	/*Leaderboard(const Leaderboard&);
-	Leaderboard& operator=(const Leaderboard&);
-	~Leaderboard();*/
+	
 	void read_leaderboard(const string curr_line, Player& player);
 	void print_leaderboard(string name_of_file) const;
 	unsigned int get_stats(string username, const Player* players, const int count);
 	int count_players(string name_of_file);
 private:
 	int all_players_count;
-	/*Player* players;
-	void free();
-	void copy_from(const Leaderboard&);*/
+
 };
 

@@ -22,7 +22,3 @@ void Player::set_username(const string username) {
 void Player::set_score(const unsigned int score) {
 	this->score = score;
 }
-//Player* Player::clone() const {
-//	Player* copy = new Player(*this);
-//	return copy;
-//}

@@ -124,6 +124,10 @@ int main() {
 				cout << endl;
 				cout << "--------------------" << endl;
 			}
+			int user_index = helper.find_user_index(count_of_users, input_username, users);
+			if (input_password != users[user_index].get_password()) {
+				helper.new_password(count_of_users, input_username, users);
+			}
 			int index = collection.get_stats(input_username, players, count_of_players);
 			Player new_player(input_username, players[index].get_score());
 			player = new_player;
@@ -154,9 +158,9 @@ int main() {
 		int miss = 0;
 		if (game_command == "$ new game") {
 			string word_to_guess=play.take_word(name_of_words_file);
-			play.guess(word_to_guess,play.blank_word(word_to_guess),player.get_score(), input_username,miss);
-			
-			cout << player.get_score()<<endl;
+			int score = player.get_score();
+			play.guess(word_to_guess,play.blank_word(word_to_guess),score, input_username,miss);
+			player.set_score(score);
 			cout << endl;
 			cout << endl;
 		}
@@ -173,7 +177,7 @@ int main() {
 			string letters;
 			string blank;
 			string word;
-			unsigned int personal_score;
+			int personal_score;
 			while (saved_file >> misses >> letters >> blank >> word >> personal_score) {
 				play.guess(word, blank, personal_score, input_username,misses);
 			}

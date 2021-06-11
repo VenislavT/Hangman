@@ -14,7 +14,7 @@ public:
 
 	void set_username(const string username);
 	void set_score(const unsigned int score);
-	//Player* clone() const;
+	
 private:
 	string username;
 	unsigned int score;

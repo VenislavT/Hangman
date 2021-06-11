@@ -26,8 +26,7 @@ int Leaderboard::count_players(string name_of_file) {
 	return all_players_count;
 }
 void Leaderboard::add_leaderboard(string file_name, Player& player, int& all_players_count, int& max_players_count, Player*& players) {
-	/*Player* ptr = new Player(username, personal_score);
-	players.push_back(ptr);*/
+
 	all_players_count++;
 	if (all_players_count >= max_players_count) {
 		resize_players(players, max_players_count);
@@ -38,31 +37,7 @@ void Leaderboard::add_leaderboard(string file_name, Player& player, int& all_pla
 	file.close();
 	cout << "Registration complete." << endl;
 }
-//Leaderboard::Leaderboard(const Leaderboard& other) {
-//	copy_from(other);
-//}
-//Leaderboard& Leaderboard::operator=(const Leaderboard& other) {
-//	if (this != &other) {
-//		free();
-//		copy_from(other);
-//	}
-//	return *this;
-//}
-//Leaderboard::~Leaderboard() {
-//	free();
-//}
-//
-//void Leaderboard::free() {
-//	for (size_t i = 0; i < players.size(); i++) {
-//		delete players[i];
-//	}
-//	players.clear();
-//}
-//void Leaderboard::copy_from(const Leaderboard& other) {
-//	for (size_t i = 0; i < players.size(); i++) {
-//		players[i] = other.players[i];
-//	}	
-//}
+
 void Leaderboard::print_leaderboard(string name_of_file) const {
 	ifstream file(name_of_file);
 	while (!file.eof()) {
@@ -92,13 +67,7 @@ void Leaderboard::read_leaderboard(const string curr_line, Player& player) {
 		player.set_username(username);
 		player.set_score(score);
 	}
-	/*getline(file, username, ' ');
-	getline(file, score);
-	int interval_pos = curr_line.find(" ");
-	username = curr_line.substr(0, interval_pos);
-	player.set_username(username);
-	
-	score = */
+
 	file.close();
 
 }
