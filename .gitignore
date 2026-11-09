@@ -1,0 +1,17 @@
+# Visual Studio
+.vs/
+x64/
+Hangman/
+*.vcxproj.user
+
+# Build output
+*.exe
+*.o
+*.obj
+
+# Archives
+*.zip
+
+# Created while playing
+data/users_collection.txt
+data/save_*.txt
